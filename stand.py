@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 #
 # Converts the text between :: to fullwidth then adds 「 and 」.
 # ie: 
