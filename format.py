@@ -39,9 +39,9 @@ except ImportError:
     import_ok = False
 
 SCRIPT_NAME = "format"
-SCRIPT_AUTHOR = "Hairo"
+SCRIPT_AUTHOR = "Hairo R. Carela <hairocr8@gmail.com>"
 SCRIPT_VERSION = "0.1"
-SCRIPT_LICENSE = "GPL3"
+SCRIPT_LICENSE = "WTFPL"
 SCRIPT_DESC = ("Alternate way of text formatting, see /help for instructions")
 
 PY3 = sys.version > '3'
