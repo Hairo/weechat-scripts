@@ -35,6 +35,6 @@ ie:
 /format This /must/ be the *work* of an _enemy_ |stand|
 ```
 
-will output (can't underline with this markdown):
+will output (can't underline with github markdown >.>):
 
 ![](https://raw.githubusercontent.com/Hairo/weechat-scripts/master/format.png)
