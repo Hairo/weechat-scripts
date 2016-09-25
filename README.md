@@ -26,7 +26,7 @@ text <*/_|> text <*/_|> more text
 
 *: bold text
 /: italic text
-_: underlined text\n"
+_: underlined text
 |: reversed (black on white) text
 ```
 
