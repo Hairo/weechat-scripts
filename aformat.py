@@ -15,10 +15,10 @@
 # features (Glowingbear, WeechatAndroid, etc)
 #
 # Usage:
-# /format *text* for bold text
-# /format /text/ for italic text
-# /format _text_ for underlined text
-# /format |text| for reversed (black on white) text
+# /aformat *text* for bold text
+# /aformat /text/ for italic text
+# /aformat _text_ for underlined text
+# /aformat |text| for reversed (black on white) text
 #
 # History:
 #   2016-09-24:
@@ -38,7 +38,7 @@ except ImportError:
     print "Get WeeChat now at: http://www.weechat.org/"
     import_ok = False
 
-SCRIPT_NAME = "format"
+SCRIPT_NAME = "aformat"
 SCRIPT_AUTHOR = "Hairo R. Carela <hairocr8@gmail.com>"
 SCRIPT_VERSION = "0.1"
 SCRIPT_LICENSE = "WTFPL"
@@ -66,7 +66,7 @@ else:
     def send(buf, text):
         weechat.command(buf, "/input send {}".format(text.encode("utf-8")))
 
-def cb_format_cmd(data, buf, args):
+def cb_aformat_cmd(data, buf, args):
     if not PY3:
         args = args.decode("utf-8")
 
@@ -110,12 +110,12 @@ def cb_format_cmd(data, buf, args):
 if import_ok and __name__ == "__main__":
     weechat.register(SCRIPT_NAME, SCRIPT_AUTHOR, SCRIPT_VERSION,
                      SCRIPT_LICENSE, SCRIPT_DESC, '', '')
-    weechat.hook_command("format", "Alternate way of text formatting, useful for relays without text formatting features (Glowingbear, WeechatAndroid, etc)",
+    weechat.hook_command("aformat", "Alternate way of text formatting, useful for relays without text formatting features (Glowingbear, WeechatAndroid, etc)",
                          "text <*/_|> text <*/_|> more text",
                          "    *: bold text\n"
                          "    /: italic text\n"
                          "    _: underlined text\n"
                          "    |: reversed (black on white) text\n\n"
-                         "    eg.: typing: /format This /must/ be the *work* of an _enemy_ |stand|\n"
+                         "    eg.: typing: /aformat This /must/ be the *work* of an _enemy_ |stand|\n"
                          "    will output: This {0}must{4} be the {1}work{4} of an {2}enemy{4} {3}stand{4}".format(weechat.color("italic"), weechat.color("bold"), weechat.color("underline"), weechat.color("reverse"), weechat.color("reset")),
-                         "", "cb_format_cmd", "")
+                         "", "cb_aformat_cmd", "")
