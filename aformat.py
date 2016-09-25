@@ -47,11 +47,13 @@ SCRIPT_DESC = ("Alternate way of text formatting, see /help for instructions")
 PY3 = sys.version > '3'
 
 class format:
-   PURPLE = '\x0306'
-   BLUE = '\x0302'
-   GREEN = '\x0303'
-   YELLOW = '\x0308'
-   RED = '\x0304'
+    # Special byte sequences, using weechat.color("stuff") had some unwanted
+    # results, i'll look into it if needed. Colors are unused for now
+   # PURPLE = '\x0306'
+   # BLUE = '\x0302'
+   # GREEN = '\x0303'
+   # YELLOW = '\x0308'
+   # RED = '\x0304'
    BOLD = '\x02'
    ITALIC = '\x1D'
    UNDERLINE = '\x1F'
@@ -70,6 +72,7 @@ def cb_aformat_cmd(data, buf, args):
     if not PY3:
         args = args.decode("utf-8")
 
+    # Get the indexes of the separators (*/_|) in the string
     bolds = [i for i, ltr in enumerate(args) if ltr == "*"]
     italics = [i for i, ltr in enumerate(args) if ltr == "/"]
     underlines = [i for i, ltr in enumerate(args) if ltr == "_"]
